@@ -6,16 +6,17 @@ export default defineConfig({
   base: '/blog/',
   themeConfig: {
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Home', link: '/' }
     ],
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Vue2',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Vue2源码', link: '/Vue2/source-code' },
+          { text: 'VueRouter', link: '/Vue2/vue-router' },
+          { text: 'VueX', link: '/Vue2/vuex' },
+          { text: 'VueCli', link: '/Vue2/vue-cli' },
         ]
       }
     ],
