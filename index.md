@@ -5,14 +5,13 @@ layout: home
 hero:
   name: "My Blog"
   text: "learn and share"
-  tagline: My great project tagline
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Vue2源码
+      link: /Vue2/source-code
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Vue-Router
+      link: /Vue2/vue-router
 
 features:
   - title: Feature A
