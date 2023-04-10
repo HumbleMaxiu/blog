@@ -24,5 +24,25 @@ export default [
             { text: '类型体操', link: '/TS/operation' },
             { text: '结合Vue3实战', link: '/TS/vue3' },
         ]
+    },
+    {
+        text: '算法',
+        items: [
+            { text: '算法基础', link: '/algorithm/basic' },
+            { text: '每日一题 0/365', link: '/algorithm/day' },
+        ]
+    },
+    {
+        text: 'HTTP',
+        items: [
+            { text: 'HTTP基础', link: '/HTTP/basic' },
+            { text: 'HTTP实践', link: '/HTTP/practice' },
+        ]
+    },
+    {
+        text: 'HTML',
+        items: [
+            { text: '特性', link: '/HTML/property' }
+        ]
     }
   ]
