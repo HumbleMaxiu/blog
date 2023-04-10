@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "My Blog"
-  text: "learn and share"
+  name: "意识习惯"
+  text: "记录中级晋升高级的学习过程"
   actions:
     - theme: brand
       text: Vue2源码
@@ -12,13 +12,3 @@ hero:
     - theme: alt
       text: Vue-Router
       link: /Vue2/vue-router
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
----
-
