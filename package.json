@@ -1,0 +1,28 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "博客",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev docs --open",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HumbleMaxiu/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HumbleMaxiu/blog/issues"
+  },
+  "homepage": "https://github.com/HumbleMaxiu/blog#readme",
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.65"
+  }
+}
