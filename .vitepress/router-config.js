@@ -4,6 +4,7 @@ export default [
       items: [
         { text: 'Vue2源码', link: '/Vue2/source-code' },
         { text: 'VueRouter', link: '/Vue2/vue-router' },
+        { text: 'VueRouter源码', link: '/Vue2/vue-router-source-code' },
         { text: 'VueX', link: '/Vue2/vuex' },
         { text: 'VueCli', link: '/Vue2/vue-cli' },
       ]
@@ -43,6 +44,13 @@ export default [
         text: 'HTML',
         items: [
             { text: '特性', link: '/HTML/property' }
+        ]
+    },
+    {
+        text: 'Node',
+        items: [
+            { text: '学习', link: '/Node/index' },
+            { text: 'NPM指令', link: '/Node/npm' }
         ]
     }
   ]
