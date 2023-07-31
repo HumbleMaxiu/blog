@@ -31,7 +31,7 @@ function maxSumAfterPartitioning(arr: number[], k: number): number {
     return dp[n]
 };
 ```
-## DAY2
+## DAY 2
 > leetCode: 143. 重排链表
 问题描述：
 > 给定一个单链表 L 的头节点 head ，单链表 L 表示为：
@@ -123,8 +123,9 @@ function reorderList(head: ListNode | null): void {
     l.next = r
 };
 ```
-## DAY3
-#### leetCode: 6. N 字形变换
+## DAY 3
+## DAY 4
+> leetCode: 6. N 字形变换
 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
 比如输入字符串为 "PAYPALISHIRING" 行数为 3 时，排列如下：
 
@@ -201,5 +202,97 @@ function convert(s: string, numRows: number): string {
     return arr.reduce((value, cur) => {
         return value + cur
     }, '')
+};
+```
+## DAY 5
+> leetcode 8. 字符串转换整数 (atoi)
+> 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
+> 函数 myAtoi(string s) 的算法如下：
+
+1. 读入字符串并丢弃无用的前导空格
+2. 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。
+3. 读入下一个字符，直到到达下一个非数字字符或到达输入的结尾。字符串的其余部分将被忽略。
+4. 将前面步骤读入的这些数字转换为整数（即，"123" -> 123， "0032" -> 32）。如果没有读入数字，则整数为 0 。必要时更改符号（从步骤 2 开始）。
+5. 如果整数数超过 32 位有符号整数范围 [−231,  231 − 1] ，需要截断这个整数，使其保持在这个范围内。具体来说，小于 −231 的整数应该被固定为 −231 ，大于 231 − 1 的整数应该被固定为 231 − 1 。
+6. 返回整数作为最终结果。
+注意：
+
+- 本题中的空白字符只包括空格字符 ' ' 。
+- 除前导空格或数字后的其余字符串外，请勿忽略 任何其他字符。
+
+来源：力扣（LeetCode）
+链接：https://leetcode.cn/problems/string-to-integer-atoi
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+解法1：自动状态机
+```js
+function myAtoi(s: string): number {
+    // 状态转移
+    //          ' '    +/-    number   other
+    // start   start  signed  number    end
+    // signed   end    end    number    end
+    // number   end    end    number    end
+    // end      end    end     end      end
+    let status: string = 'start'
+    let res = ''
+    let sign = 1
+    const statusMap = {
+        start: ['start', 'signed', 'number', 'end'],
+        signed: ['end', 'end', 'number', 'end'],
+        number: ['end', 'end', 'number', 'end'],
+        end: ['end', 'end', 'end', 'end']
+    }
+    const getRawIndex = (str) => {
+        let index
+        if (str === ' ') {
+            index = 0
+        } else if (/[+-]/.test(str)) {
+            index = 1
+        } else if (!isNaN(Number(str))) {
+            index = 2
+        } else {
+            index = 3
+        }
+        return index
+    }
+    for (let str of s) {
+        // 状态转移
+        let idx = getRawIndex(str)
+        status = statusMap[status][idx]
+        if (status === 'end') break
+        // 没结束，处理字符
+        if (idx === 2) {
+            res += str
+        } else if (idx === 1) {
+            sign = str === '+' ? 1 : -1
+        }
+    }
+    let num = Number(res)
+    if (isNaN(num)) return 0
+    num *= sign
+    if (num > Math.pow(2, 31) - 1) num = Math.pow(2, 31) - 1
+    if (num < -Math.pow(2, 31)) num = -Math.pow(2, 31)
+    return num
+};
+```
+## DAY 6
+> leetcode 100. 相同的树
+给你两棵二叉树的根节点 p 和 q ，编写一个函数来检验这两棵树是否相同。
+
+> 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
+> 输入：p = [1,2,3], q = [1,2,3]
+> 输出：true
+
+> 输入：p = [1,2], q = [1,null,2]
+> 输出：false
+
+解法1，深度优先搜索（递归）
+```typescript
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    if (!p && !q) return true // 都是null直接返回
+    if (p && q && p.val === q.val) { // 节点都存在，且值相等的时候，继续向下比较
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+    }
+    return false // 其他情况都是 false
 };
 ```
